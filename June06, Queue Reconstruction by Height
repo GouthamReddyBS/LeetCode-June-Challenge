@@ -1,0 +1,10 @@
+class Solution(object):
+    def reconstructQueue(self, people):
+        people.sort(key=lambda x: (-x[0], x[1]))
+        ans = []
+        for person, num in people:
+            if num >= len(ans):
+                ans.append([person, num])
+            else:
+                ans.insert(num, [person, num])
+        return ans
